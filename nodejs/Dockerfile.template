@@ -12,7 +12,7 @@ ENV DOBACKUP="false"
 @include("yarn")
 @include("python")
 @include("pip")
-@include("aws")
+@include("awscli")
 
 RUN mkdir -p /work && \
     for d in .npm .local .aws .config; do \
