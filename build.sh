@@ -561,7 +561,7 @@ function resolve_include_env() {
         for ((i = 0; i < ${#_envVars[@]}; i++)); do \
           _envVar="${_envVars[$i]}";
           if ! startsWith "${_envVar}" "ENABLE_"; then
-            local _varLine="$(echo "${_envVar}" | awk -v dollar="$" -v quote="\"" '{printf("echo -n \"SQ_%s=\\\"%s%s{%s}%s\\\"\"", $0, quote, dollar, $0, quote);}' | sh)";
+            local _varLine="$(echo "${_envVar}" | awk -v dollar="$" -v quote="\"" '{printf("echo \"SQ_%s=\\\"%s%s{%s}%s\\\"\"", $0, quote, dollar, $0, quote);}' | sh)";
             if isNotEmpty "${_varLine}"; then
               echo "\\" >> "${_output}";
               echo -n "    ${_varLine}" >> "${_output}";
