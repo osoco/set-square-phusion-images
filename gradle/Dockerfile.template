@@ -6,6 +6,8 @@ FROM ${NAMESPACE}/base:${PARENT_IMAGE_TAG}
 
 @include("service_user")
 @include("openjdk")
+@include("unzip")
+@include("zip")
 @include("sdkman")
 @include("gradle")
 

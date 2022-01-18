@@ -11,22 +11,20 @@ RUN dpkg --add-architecture i386 \
  && cd /opt/pharo${PHARO_MAJOR_VERSION} \
  && wget -q https://files.pharo.org/sources/PharoV60.sources \
  && cd /opt/pharo${PHARO_MAJOR_VERSION} \
- && echo -n '' \
- && (curl get.pharo.org/64/vmT${PHARO_VERSION_ZEROCONF} | bash) \
+ && curl get.pharo.org/64/vmT${PHARO_VERSION_ZEROCONF} | bash \
  && cd /opt && ln -s pharo${PHARO_MAJOR_VERSION} pharo \
  && echo '*      hard    rtprio  2' >  /etc/security/limits.d/pharo.conf \
  && echo '*      soft    rtprio  2' >> /etc/security/limits.d/pharo.conf \
  && echo 'export PATH=${PATH}:/opt/pharo/pharo-vm' > /etc/profile.d/pharo.sh \
  && echo 'setenv PATH=${PATH}:/opt/pharo/pharo-vm' > /etc/profile.d/pharo.csh \
- && echo -n '' \
  && chmod +x /etc/profile.d/pharo.sh /etc/profile.d/pharo.csh \
+ && cd /opt/pharo/pharo-vm/lib/pharo/${PHAROVM_VERSION} \
  && mv /root/.dry-wit ${SERVICE_USER_HOME} \
  && ln -s ${SERVICE_USER_HOME}/.dry-wit /root/ \
  && mkdir -p ${SERVICE_USER_HOME}/.config/pharo \
- && echo -n '' \
  && ln -s ${SERVICE_USER_HOME}/.config /root/.config \
  && chown -R ${SERVICE_USER}:${SERVICE_GROUP} /opt/pharo ${SERVICE_USER_HOME} /root/.dry-wit \
- && ${SYSTEM_CLEANUP}
+ && ${SYSTEM_CLEANUP} \
 
 COPY pharo-files/author.st.sample \
      pharo-files/credentials-github.st.sample \

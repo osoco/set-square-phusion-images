@@ -1,0 +1,5 @@
+# v zip
+RUN ${SYSTEM_UPDATE} && \
+    ${PKG_INSTALL} zip && \
+    ${SYSTEM_CLEANUP}
+# ^ zip

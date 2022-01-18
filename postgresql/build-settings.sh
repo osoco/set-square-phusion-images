@@ -1,5 +1,5 @@
-defineEnvVar PARENT_IMAGE_TAG MANDATORY "The version of the parent image" "0.11";
-defineEnvVar POSTGRESQL_VERSION MANDATORY "The PostgreSQL version" "9.6";
+overrideEnvVar PARENT_IMAGE_TAG "latest";
+defineEnvVar POSTGRESQL_VERSION MANDATORY "The PostgreSQL version" "12";
 defineEnvVar TAG MANDATORY "The image tag" '${POSTGRESQL_VERSION}';
 defineEnvVar POSTGRESQL_ROOT_USER MANDATORY "The name of the admin user in PostgreSQL" "root";
 defineEnvVar POSTGRESQL_ROOT_PASSWORD MANDATORY "The password for the admin user in PostgreSQL" "secret" "${RANDOM_PASSWORD}";

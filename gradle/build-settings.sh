@@ -1,4 +1,4 @@
-defineEnvVar PARENT_IMAGE_TAG MANDATORY "The tag of the base image" "0.11";
+overrideEnvVar PARENT_IMAGE_TAG "latest";
 defineEnvVar GRADLE_VERSION MANDATORY "The Gradle version" "6.5";
 overrideEnvVar TAG '${GRADLE_VERSION}';
 defineEnvVar WORKSPACE MANDATORY "The workspace folder" "/work";

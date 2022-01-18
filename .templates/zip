@@ -1,4 +1,5 @@
-# v unzip
+# v zip
 RUN /usr/local/sbin/system-update.sh -v && \
-    /usr/local/sbin/pkg-install.sh -v unzip && \
+    /usr/local/sbin/pkg-install.sh -v zip && \
     /usr/local/sbin/system-cleanup.sh -v
+# ^ zip
