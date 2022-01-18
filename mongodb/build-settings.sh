@@ -1,6 +1,10 @@
-defineEnvVar PARENT_IMAGE_TAG MANDATORY "The tag of the parent image" "0.11";
-defineEnvVar MONGODB_MAJOR_VERSION MANDATORY "The MongoDB version" "4.0";
-defineEnvVar MONGODB_VERSION MANDATORY "The MongoDB version" '${MONGODB_MAJOR_VERSION}.10';
+overrideEnvVar PARENT_IMAGE_TAG "latest";
+
+defineEnvVar MONGODB_MAJOR_VERSION MANDATORY "The MongoDB version" "4";
+defineEnvVar MONGODB_MINOR_VERSION MANDATORY "The MongoDB version" "0";
+defineEnvVar MONGODB_PATCH_VERSION MANDATORY "The MongoDB version" "27"
+defineEnvVar MONGODB_VERSION MANDATORY "The MongoDB version" '${MONGODB_MAJOR_VERSION}.${MONGODB_MINOR_VERSION}.${MONGODB_PATCH_VERSION}'
+
 overrideEnvVar TAG '${MONGODB_VERSION}';
 defineEnvVar REPLICA_SET_NAME MANDATORY "The name of the replica set" '${NAMESPACE}';
 defineEnvVar SERVICE_USER MANDATORY "The service user" "mongodb";
